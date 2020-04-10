@@ -145,15 +145,15 @@ public class BubbleSort_Test {
 
 # 使用示例
 ### 1/5 JUnitGenerationSample1 为例   
-![avatar](https://github.com/cuixiaoyiyi/Research/blob/master/Engineering/JUnitGeneration/JUnitGenerationSample1_src.png)  
+![avatar](https://github.com/cuixiaoyiyi/pic/blob/master/Engineering/JUnitGeneration/JUnitGenerationSample1_src.png)  
 ### 2/5 运行命令  
 ```
 java -cp JUnitGeneration_V0.2_20200305.jar cn.ios.junit.JUnitGenerationMain -t  /Users/cbq/Desktop/isca/workspace/JUnitGenerationSample1/bin -jlib ./jdk1_8_0_172/rt.jar -n 2
 ```
 ### 3/5 生成monkeytest目录  
-![avatar](https://github.com/cuixiaoyiyi/Research/blob/master/Engineering/JUnitGeneration/monkeytest.png)  
+![avatar](https://github.com/cuixiaoyiyi/pic/blob/master/Engineering/JUnitGeneration/monkeytest.png)  
 
 ### 4/5 在IDE中 Use as Source Folder   
-![avatar](https://github.com/cuixiaoyiyi/Research/blob/master/Engineering/JUnitGeneration/monkeytest_tree.png)
+![avatar](https://github.com/cuixiaoyiyi/pic/blob/master/Engineering/JUnitGeneration/monkeytest_tree.png)
 
 ### 5/5 import JUnit
