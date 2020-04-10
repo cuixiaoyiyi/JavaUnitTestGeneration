@@ -22,7 +22,7 @@ JUnit5
 
 ### 命令行执行示例
 ```
-java -cp JUnitGeneration_V0.2_20200305.jar cn.ios.junit.JUnitGenerationMain -t C:\Users\C\eclipseworkspace\code\Sort\bin\ -jlib "C:\Program Files\Java\jdk1.8.0_231\jre\lib\rt.jar" -n -2
+java -cp JUnitGeneration_20200410.jar cn.ios.junit.JUnitGenerationMain -t C:\Users\C\eclipseworkspace\code\Sort\bin -jlib jdk1_8_0_172_rt.jar -n 2
 ```
 
 ### 执行后生成文件夹
