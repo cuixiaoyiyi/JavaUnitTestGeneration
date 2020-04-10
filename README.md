@@ -1,6 +1,12 @@
 # JUnitGeneration 工具说明文档 
 JUnitGeneration是一个自动生成JUnit单元测试代码的工具，其输入是Java字节码，输出是JUnit测试源代码。
 
+#  下载  
+```
+最新版本： JUnitGeneration_20200410.jar  
+rt.jar 可下载jdk1_8_0_172_rt.zip解压
+```
+
 ### 所需环境
 JDK1.8  （1.8+版本未测试） 
 JUnit5
