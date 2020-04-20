@@ -11,29 +11,9 @@ rt.jar 可下载jdk1_8_0_172_rt.zip解压
 JDK1.8  （1.8+版本未测试） 
 JUnit5
 
-### 命令解释
-| 命令       | 格式   |  说明 | 
-|  -  | - | -  | 
-| -t<br/>-targetByteCodeFolder| 文件夹路径；<br/>.jar文件全路径； | 必填参数；<br/>代表待测字节码的路径; |
-| -jlib <br /> -javaLibJar| %YourJavaHome%/jre/lib/rt.jar | 必填参数；<br/>代表rt.jar的路径，jdk9及之后无该文件，暂时未处理该状况 |
-|  -n  <br/> -number| 正整数  |  选填参数；<br/>每一个public方法生成的单元测试方法的数量；默认值为1  |
-
-###  参数示例
-| 命令       | 输入示例   |
-|  -  | - |
-|  -t  | 文件夹：C:\Users\C\eclipseworkspace\code\Sort\bin\ <br /> Jar包： C:\Users\C\eclipseworkspace\code\Sort.jar|
-|  -jlib  | 有空格："C:\Program Files\Java\jdk1.8.0_231\jre\lib\rt.jar" <br /> 无空格: C:\Users\C\eclipseworkspace\rt.jar |
-|  -n  | 2 |
-
-
-### 命令行执行示例
-```
-java -cp JUnitGeneration_20200410.jar cn.ios.junit.JUnitGenerationMain -t C:\Users\C\eclipseworkspace\code\Sort\bin -jlib jdk1_8_0_172_rt.jar -n 2
-```
-
 ### 执行后生成文件夹
 
-| 输入  | 输出 |
+| 输入(-t)  | 输出 |
 |  -  | - |
 |  YouPath\bin\  | YouPath\monkeytest\ |
 |   YouPath\  |  YouPath\monkeytest\ |
@@ -55,6 +35,7 @@ java -cp JUnitGeneration_20200410.jar cn.ios.junit.JUnitGenerationMain -t C:\Use
 |3 | 泛型| 支持泛型嵌套；支持raw 类型；支持 <?> <? super AAA> <? extends AAA>|
 |4 | 集合 | 支持两类集合(Collection和Map)及其子类；支持添加元素 |
 |5 | 数组 | 支持对象数组；支持基本类型数组；<br /> 支持多维数组 |
+|6 | 多级别生成 | 支持工程、包、类、方法、关键字各层次的单元测试生成 |
 
 ### 工具未实现的支持
 || 未实现  | 说明 |
@@ -65,6 +46,80 @@ java -cp JUnitGeneration_20200410.jar cn.ios.junit.JUnitGenerationMain -t C:\Use
 | 4| 泛型数组 | 程序执行时可能发生异常 | 
 | 5| 断言语句 | 无法判断执行结果 |
 | 6| 组合测试 | 未对该类的各个方法组合调用生成； |
+
+
+###  工程(project)级别单元测试代码生成
+| 参数    | 说明      | 输入示例   |
+|  -  | - |  - |
+|  -l  | 必填;待测代码层级，取固定值 project | project |
+|  -r  | 必填;rt.jar依赖库 | 有空格："C:\Program Files\Java\jdk1.8.0_231\jre\lib\rt.jar" <br /> 无空格: C:\Users\C\eclipseworkspace\rt.jar |   
+|  -t  | 必填;待测代码；可以是.jar也可以是文件夹目录；多个以分号(;)相隔 | C:\Users\C\eclipseworkspace\JUnitGeneration\bin;<br />C:\Users\C\eclipseworkspace\JUnitGeneration\libs\xx.jar |
+|  -d  | 如果有依赖，必填；无依赖不填;待测代码依赖的第三方库；可以是.jar也可以是文件夹目录；多个以分号(;)相隔 | C:\Users\C\eclipseworkspace\JUnitGeneration\libs\xx.jar |
+|  -n  | 选填；正整数，代表每个方法生成的测试方法数，默认为1 | 2 |  
+
+命令行示例
+```
+java -cp JUnitGeneration_20200420.jar cn.ios.junit.Main -l project -t C:\Users\C\eclipseworkspace\JUnitGenerationSample1\bin -r jdk1_8_0_172_rt.jar -n 2
+```
+
+
+###  包(package)级别单元测试代码生成
+| 参数    | 说明      | 输入示例   |
+|  -  | - |  - |
+|  -l  | 必填;待测代码层级，取固定值 package | package |
+|  -r  | 必填;rt.jar依赖库 | 有空格："C:\Program Files\Java\jdk1.8.0_231\jre\lib\rt.jar" <br /> 无空格: C:\Users\C\eclipseworkspace\rt.jar |   
+|  -t  | 必填;待测代码；可以是.jar也可以是文件夹目录；多个以分号(;)相隔 | C:\Users\C\eclipseworkspace\JUnitGeneration\bin;<br />C:\Users\C\eclipseworkspace\JUnitGeneration\libs\xx.jar |
+|  -p  | 必填；包名；严格匹配 | cn.ios.junit  |
+|  -d  | 如果有依赖，必填；无依赖不填;待测代码依赖的第三方库；可以是.jar也可以是文件夹目录；多个以分号(;)相隔 | C:\Users\C\eclipseworkspace\JUnitGeneration\libs\xx.jar |  
+|  -n  | 选填；正整数，代表每个方法生成的测试方法数，默认为1 | 2 |   
+
+命令行示例
+```
+java -cp JUnitGeneration_20200420.jar cn.ios.junit.Main -l package -t C:\Users\C\eclipseworkspace\JUnitGenerationSample1\bin -r jdk1_8_0_172_rt.jar -p  cn.ios.ac.junit.sample -n 2
+```
+
+###  类(class)级别单元测试代码生成
+| 参数    | 说明      | 输入示例   |
+|  -  | - |  - |
+|  -l  | 必填;待测代码层级，取固定值 class | class |
+|  -r  | 必填;rt.jar依赖库 | 有空格："C:\Program Files\Java\jdk1.8.0_231\jre\lib\rt.jar" <br /> 无空格: C:\Users\C\eclipseworkspace\rt.jar |   
+|  -t  | 必填;待测代码；可以是.jar也可以是文件夹目录；多个以分号(;)相隔 | C:\Users\C\eclipseworkspace\JUnitGeneration\bin;<br />C:\Users\C\eclipseworkspace\JUnitGeneration\libs\xx.jar |
+|  -c  | 必填；类名（带包名）；严格匹配 | cn.ios.junit.Main  |
+|  -d  | 如果有依赖，必填；无依赖不填;待测代码依赖的第三方库；可以是.jar也可以是文件夹目录；多个以分号(;)相隔 | C:\Users\C\eclipseworkspace\JUnitGeneration\libs\xx.jar |  
+|  -n  | 选填；正整数，代表每个方法生成的测试方法数，默认为1 | 2 |  
+
+命令行示例  
+```
+java -cp JUnitGeneration_20200420.jar cn.ios.junit.Main -l class -t C:\Users\C\eclipseworkspace\JUnitGenerationSample1\bin -r jdk1_8_0_172_rt.jar -c  cn.ios.ac.junit.sample.Candy -n 2
+```
+###  方法(method)级别单元测试代码生成
+| 参数    | 说明      | 输入示例   |
+|  -  | - |  - |
+|  -l  | 必填;待测代码层级，取固定值 method | method |
+|  -r  | 必填;rt.jar依赖库 | 有空格："C:\Program Files\Java\jdk1.8.0_231\jre\lib\rt.jar" <br /> 无空格: C:\Users\C\eclipseworkspace\rt.jar |   
+|  -t  | 必填;待测代码；可以是.jar也可以是文件夹目录；多个以分号(;)相隔 | C:\Users\C\eclipseworkspace\JUnitGeneration\bin;<br />C:\Users\C\eclipseworkspace\JUnitGeneration\libs\xx.jar |
+|  -m  | 必填；方法签名；严格匹配；格式 <br /> <类名: 返回值类型 方法名(参数类型，多个以逗号分隔)>| <cn.ios.junit.Main: long get_max_running_time(long,java.lang.Integer)>  |
+|  -d  | 如果有依赖，必填；无依赖不填;待测代码依赖的第三方库；可以是.jar也可以是文件夹目录；多个以分号(;)相隔 | C:\Users\C\eclipseworkspace\JUnitGeneration\libs\xx.jar |  
+|  -n  | 选填；正整数，代表每个方法生成的测试方法数，默认为1 | 2 | 
+
+命令行示例  
+```
+java -cp JUnitGeneration_20200420.jar cn.ios.junit.Main -l method -t C:\Users\C\eclipseworkspace\JUnitGenerationSample1\bin -r jdk1_8_0_172_rt.jar -c  "<cn.ios.ac.junit.sample.Candy: int candy(int[])>" -n 2
+```
+###  关键字(keyword)级别单元测试代码生成
+| 参数    | 说明      | 输入示例   |
+|  -  | - |  - |
+|  -l  | 必填;待测代码层级，取固定值 key | key |
+|  -r  | 必填;rt.jar依赖库 | 有空格："C:\Program Files\Java\jdk1.8.0_231\jre\lib\rt.jar" <br /> 无空格: C:\Users\C\eclipseworkspace\rt.jar |   
+|  -t  | 必填;待测代码；可以是.jar也可以是文件夹目录；多个以分号(;)相隔 | C:\Users\C\eclipseworkspace\JUnitGeneration\bin;<br />C:\Users\C\eclipseworkspace\JUnitGeneration\libs\xx.jar |
+|  -k  | 必填；关键字；类签名.contain匹配 | Basic  |
+|  -d  | 如果有依赖，必填；无依赖不填;待测代码依赖的第三方库；可以是.jar也可以是文件夹目录；多个以分号(;)相隔 | C:\Users\C\eclipseworkspace\JUnitGeneration\libs\xx.jar |  
+|  -n  | 选填；正整数，代表每个方法生成的测试方法数，默认为1 | 2 |   
+
+命令行示例   
+```
+java -cp JUnitGeneration_20200420.jar cn.ios.junit.Main -l key -t C:\Users\C\eclipseworkspace\JUnitGenerationSample1\bin -r jdk1_8_0_172_rt.jar -k  Candy -n 2
+```
 
 ### 工具效果展示
 
