@@ -2,11 +2,11 @@
 JUnitGeneration是一个自动生成JUnit单元测试代码的工具，其输入是Java字节码，输出是JUnit测试源代码。
 
 ##  下载  
-```
-最新版本： JUnitGeneration_20200420.jar  release模块中下载
- [JUnitGeneration_20200420.jar](https://github.com/cuixiaoyiyi/JavaUnitTestGeneration/releases) 
+
+最新版本： JUnitGeneration_20200420.jar  release模块中下载  
+ [JUnitGeneration_20200420.jar](https://github.com/cuixiaoyiyi/JavaUnitTestGeneration/releases "传送门") 
 rt.jar 可下载jdk1_8_0_172_rt.zip解压
-```
+
 
 ### 所需环境
 JDK1.8  （1.8+版本未测试） 
