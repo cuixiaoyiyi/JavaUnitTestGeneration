@@ -4,7 +4,7 @@ JUnitGeneration是一个自动生成JUnit单元测试代码的工具，其输入
 ##  下载  
 ```
 最新版本： JUnitGeneration_20200420.jar  release模块中下载
-[JUnitGeneration_20200420.jar](https://github.com/cuixiaoyiyi/JavaUnitTestGeneration/releases "Release") 
+ [JUnitGeneration_20200420.jar](https://github.com/cuixiaoyiyi/JavaUnitTestGeneration/releases) 
 rt.jar 可下载jdk1_8_0_172_rt.zip解压
 ```
 
