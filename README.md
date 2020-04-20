@@ -3,7 +3,7 @@ JUnitGeneration是一个自动生成JUnit单元测试代码的工具，其输入
 
 ##  下载  
 ```
-最新版本： JUnitGeneration_20200410.jar  
+最新版本： JUnitGeneration_20200420.jar  release模块中下载
 rt.jar 可下载jdk1_8_0_172_rt.zip解压
 ```
 
@@ -59,7 +59,7 @@ JUnit5
 
 命令行示例
 ```
-java -cp JUnitGeneration_20200420.jar cn.ios.junit.Main -l project -t C:\Users\C\eclipseworkspace\JUnitGenerationSample1\bin -r jdk1_8_0_172_rt.jar -n 2
+java -cp JUnitGeneration_20200420.jar cn.ios.junit.Main -l project -t C:\Users\C\Desktop\JUnitGenerationSample1\bin -r jdk1_8_0_172_rt.jar -n 2
 ```
 
 
@@ -75,7 +75,7 @@ java -cp JUnitGeneration_20200420.jar cn.ios.junit.Main -l project -t C:\Users\C
 
 命令行示例
 ```
-java -cp JUnitGeneration_20200420.jar cn.ios.junit.Main -l package -t C:\Users\C\eclipseworkspace\JUnitGenerationSample1\bin -r jdk1_8_0_172_rt.jar -p  cn.ios.ac.junit.sample -n 2
+java -cp JUnitGeneration_20200420.jar cn.ios.junit.Main -l package -t C:\Users\C\Desktop\JUnitGenerationSample1\bin -r jdk1_8_0_172_rt.jar -p  cn.ios.ac.junit.sample -n 2
 ```
 
 ###  类(class)级别单元测试代码生成
@@ -90,7 +90,7 @@ java -cp JUnitGeneration_20200420.jar cn.ios.junit.Main -l package -t C:\Users\C
 
 命令行示例  
 ```
-java -cp JUnitGeneration_20200420.jar cn.ios.junit.Main -l class -t C:\Users\C\eclipseworkspace\JUnitGenerationSample1\bin -r jdk1_8_0_172_rt.jar -c  cn.ios.ac.junit.sample.Candy -n 2
+java -cp JUnitGeneration_20200420.jar cn.ios.junit.Main -l class  -t C:\Users\C\Desktop\JUnitGenerationSample1\bin -r jdk1_8_0_172_rt.jar -c  cn.ios.ac.junit.sample.Candy -n 2
 ```
 ###  方法(method)级别单元测试代码生成
 | 参数    | 说明      | 输入示例   |
@@ -104,7 +104,7 @@ java -cp JUnitGeneration_20200420.jar cn.ios.junit.Main -l class -t C:\Users\C\e
 
 命令行示例  
 ```
-java -cp JUnitGeneration_20200420.jar cn.ios.junit.Main -l method -t C:\Users\C\eclipseworkspace\JUnitGenerationSample1\bin -r jdk1_8_0_172_rt.jar -c  "<cn.ios.ac.junit.sample.Candy: int candy(int[])>" -n 2
+java -cp JUnitGeneration_20200420.jar cn.ios.junit.Main -l method  -t C:\Users\C\Desktop\JUnitGenerationSample1\bin -r jdk1_8_0_172_rt.jar -m "<cn.ios.ac.junit.sample.Candy: int candy(int[])>" -n 2
 ```
 ###  关键字(keyword)级别单元测试代码生成
 | 参数    | 说明      | 输入示例   |
@@ -118,7 +118,7 @@ java -cp JUnitGeneration_20200420.jar cn.ios.junit.Main -l method -t C:\Users\C\
 
 命令行示例   
 ```
-java -cp JUnitGeneration_20200420.jar cn.ios.junit.Main -l key -t C:\Users\C\eclipseworkspace\JUnitGenerationSample1\bin -r jdk1_8_0_172_rt.jar -k  Candy -n 2
+java -cp JUnitGeneration_20200420.jar cn.ios.junit.Main -l key  -t C:\Users\C\Desktop\JUnitGenerationSample1\bin -r jdk1_8_0_172_rt.jar -k Candy -n 2
 ```
 
 ### 工具效果展示
